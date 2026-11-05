@@ -155,7 +155,7 @@
 
     <string name="settings_version">版本信息</string>
     <string name="settings_author">作者</string>
-    <string name="settings_author_value">MXSZTY（Zhou Tianyang）</string>
+    <string name="settings_author_value">MXSZTY</string>
     <string name="settings_github">GitHub 主页</string>
     <string name="settings_github_url">https://github.com/MXSZTY</string>
     <string name="settings_disclaimer">免责声明</string>

@@ -75,4 +75,4 @@ app/src/main/java/com/mxszty/teralis/
 
 ## 作者
 
-**MXSZTY（Zhou Tianyang）** · GitHub：[@MXSZTY](https://github.com/MXSZTY)
+**MXSZTY** · GitHub：[@MXSZTY](https://github.com/MXSZTY)

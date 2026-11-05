@@ -3,6 +3,7 @@ package com.mxszty.teralis.util
 import android.content.Context
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.gson.Gson
+import com.google.gson.annotations.SerializedName
 import com.mxszty.teralis.R
 import java.net.HttpURLConnection
 import java.net.URL
@@ -30,11 +31,11 @@ object UpdateChecker {
         data object Failed : CheckResult
     }
 
-    /** GitHub Release JSON 的最小映射（Gson 按字段名直接匹配） */
+    /** GitHub Release JSON 的最小映射 */
     private data class ReleaseDto(
-        val tag_name: String? = null,
+        @SerializedName("tag_name") val tagName: String? = null,
         val body: String? = null,
-        val html_url: String? = null
+        @SerializedName("html_url") val htmlUrl: String? = null
     )
 
     fun currentVersion(context: Context): String = runCatching {
@@ -55,13 +56,13 @@ object UpdateChecker {
             if (conn.responseCode != HttpURLConnection.HTTP_OK) return CheckResult.Failed
             val json = conn.inputStream.bufferedReader().use { it.readText() }
             val release = Gson().fromJson(json, ReleaseDto::class.java) ?: return CheckResult.Failed
-            val tag = release.tag_name?.trim().orEmpty()
+            val tag = release.tagName?.trim().orEmpty()
             if (tag.isEmpty()) return CheckResult.Failed
             if (isNewer(tag, currentVersion)) {
                 CheckResult.UpdateAvailable(
                     tag = tag,
                     notes = release.body.orEmpty().trim().take(MAX_NOTES_LENGTH),
-                    pageUrl = release.html_url ?: RELEASES_PAGE
+                    pageUrl = release.htmlUrl ?: RELEASES_PAGE
                 )
             } else {
                 CheckResult.UpToDate

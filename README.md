@@ -14,12 +14,6 @@
 
 ---
 
-## 应用预览
-
-| 浏览网页 | 欢迎引导 | 设置中心 |
-| :---: | :---: | :---: |
-| <img src="docs/screenshots/main.png" width="240"/> | <img src="docs/screenshots/welcome.png" width="240"/> | <img src="docs/screenshots/settings.png" width="240"/> |
-
 ## 核心功能
 
 ### 🎭 网页身份伪装

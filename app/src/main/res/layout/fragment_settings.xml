@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/settingsScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="28dp">
+
+        <!-- ============ 配置文件 ============ -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="6dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerLow"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    style="@style/Widget.Teralis.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_section_profile" />
+
+                <LinearLayout
+                    android:id="@+id/rowActiveProfile"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_folder"
+                        app:tint="?attr/colorPrimary" />
+
+                    <TextView
+                        style="@style/Widget.Teralis.SettingRowTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_active_profile" />
+
+                    <TextView
+                        android:id="@+id/tvActiveProfile"
+                        style="@style/Widget.Teralis.SettingRowValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxWidth="150dp" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowManageProfiles"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_swap"
+                        app:tint="?attr/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_manage_profiles" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_manage_profiles_desc" />
+                    </LinearLayout>
+
+                    <include layout="@layout/view_settings_chevron" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowImportConfig"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_download"
+                        app:tint="?attr/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_import" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_import_desc" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowExportConfig"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_upload"
+                        app:tint="?attr/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_export_active" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_export_active_desc" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ============ 基础配置 ============ -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerLow"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    style="@style/Widget.Teralis.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_section_basic" />
+
+                <LinearLayout
+                    android:id="@+id/rowManageUrls"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_link"
+                        app:tint="?attr/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_manage_urls" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_manage_urls_desc" />
+                    </LinearLayout>
+
+                    <include layout="@layout/view_settings_chevron" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowManageUas"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_devices"
+                        app:tint="?attr/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_manage_uas" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_manage_uas_desc" />
+                    </LinearLayout>
+
+                    <include layout="@layout/view_settings_chevron" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowManageLocations"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_my_location"
+                        app:tint="?attr/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_manage_locations" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_manage_locations_desc" />
+                    </LinearLayout>
+
+                    <include layout="@layout/view_settings_chevron" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ============ 外观与显示 ============ -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerLow"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    style="@style/Widget.Teralis.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_section_appearance" />
+
+                <LinearLayout
+                    android:id="@+id/rowTheme"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_palette"
+                        app:tint="?attr/colorPrimary" />
+
+                    <TextView
+                        style="@style/Widget.Teralis.SettingRowTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_theme" />
+
+                    <TextView
+                        android:id="@+id/tvThemeValue"
+                        style="@style/Widget.Teralis.SettingRowValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowDynamicColor"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_explore"
+                        app:tint="?attr/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_dynamic_color" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_dynamic_color_desc" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchDynamicColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ============ 浏览与网页权限 ============ -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerLow"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    style="@style/Widget.Teralis.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_section_browsing" />
+
+                <LinearLayout
+                    android:id="@+id/rowSearchEngine"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_find"
+                        app:tint="?attr/colorPrimary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_search_engine" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_search_engine_desc" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvSearchEngineValue"
+                        style="@style/Widget.Teralis.SettingRowValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowJavaScript"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        style="@style/Widget.Teralis.SettingRowTexts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_javascript" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_javascript_desc" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchJavaScript"
+                        style="@style/Widget.Teralis.SettingRowSwitch" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowDomStorage"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        style="@style/Widget.Teralis.SettingRowTexts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_dom_storage" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_dom_storage_desc" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchDomStorage"
+                        style="@style/Widget.Teralis.SettingRowSwitch" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowZoom"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        style="@style/Widget.Teralis.SettingRowTexts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_pinch_zoom" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_pinch_zoom_desc" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchZoom"
+                        style="@style/Widget.Teralis.SettingRowSwitch" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowFileAccess"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        style="@style/Widget.Teralis.SettingRowTexts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_file_access" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_file_access_desc" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchFileAccess"
+                        style="@style/Widget.Teralis.SettingRowSwitch" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowAutoGeo"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        style="@style/Widget.Teralis.SettingRowTexts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_auto_geo" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_auto_geo_desc" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchAutoGeo"
+                        style="@style/Widget.Teralis.SettingRowSwitch" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowDeepInject"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        style="@style/Widget.Teralis.SettingRowTexts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_deep_inject" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_deep_inject_desc" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchDeepInject"
+                        style="@style/Widget.Teralis.SettingRowSwitch" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ============ 隐私与退出 ============ -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerLow"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    style="@style/Widget.Teralis.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_section_privacy" />
+
+                <LinearLayout
+                    android:id="@+id/rowExitConfirm"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        style="@style/Widget.Teralis.SettingRowTexts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_exit_confirm" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_exit_confirm_desc" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchExitConfirm"
+                        style="@style/Widget.Teralis.SettingRowSwitch" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowClearOnExit"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        style="@style/Widget.Teralis.SettingRowTexts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_clear_on_exit" />
+
+                        <TextView
+                            style="@style/Widget.Teralis.SettingRowSubtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_clear_on_exit_desc" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchClearOnExit"
+                        style="@style/Widget.Teralis.SettingRowSwitch" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ============ 关于 ============ -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainerLow"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    style="@style/Widget.Teralis.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_section_about" />
+
+                <LinearLayout
+                    android:id="@+id/rowVersion"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_info"
+                        app:tint="?attr/colorPrimary" />
+
+                    <TextView
+                        style="@style/Widget.Teralis.SettingRowTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_version" />
+
+                    <TextView
+                        android:id="@+id/tvVersionValue"
+                        style="@style/Widget.Teralis.SettingRowValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowAuthor"
+                    style="@style/Widget.Teralis.SettingRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_person"
+                        app:tint="?attr/colorPrimary" />
+
+                    <TextView
+                        style="@style/Widget.Teralis.SettingRowTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_author" />
+
+                    <TextView
+                        android:id="@+id/tvAuthorValue"
+                        style="@style/Widget.Teralis.SettingRowValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_author_value" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowGithub"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_open_external"
+                        app:tint="?attr/colorPrimary" />
+
+                    <TextView
+                        style="@style/Widget.Teralis.SettingRowTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_github" />
+
+                    <TextView
+                        style="@style/Widget.Teralis.SettingRowValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_github_url" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowDisclaimer"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_verified_user"
+                        app:tint="?attr/colorPrimary" />
+
+                    <TextView
+                        style="@style/Widget.Teralis.SettingRowTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_disclaimer" />
+
+                    <include layout="@layout/view_settings_chevron" />
+                </LinearLayout>
+
+                <include layout="@layout/view_settings_divider" />
+
+                <LinearLayout
+                    android:id="@+id/rowOpenSource"
+                    style="@style/Widget.Teralis.SettingRow.Clickable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/Widget.Teralis.SettingRowIcon"
+                        android:src="@drawable/ic_public"
+                        app:tint="?attr/colorPrimary" />
+
+                    <TextView
+                        style="@style/Widget.Teralis.SettingRowTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/settings_open_source" />
+
+                    <include layout="@layout/view_settings_chevron" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

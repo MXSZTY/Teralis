@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Android 12+：启动页背景与图标使用系统 Monet 动态取色（壁纸取色） -->
+    <style name="Theme.Teralis.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@android:color/system_accent1_100</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_mono</item>
+        <item name="postSplashScreenTheme">@style/Theme.Teralis</item>
+    </style>
+</resources>

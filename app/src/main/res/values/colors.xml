@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 品牌色（动态颜色在 Android 12+ 上覆盖以下调色板） -->
+    <color name="brand_primary">#4454C8</color>
+    <color name="brand_on_primary">#FFFFFF</color>
+    <color name="ic_launcher_background">#4454C8</color>
+    <color name="splash_background">#4454C8</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="scrim">#66000000</color>
+</resources>

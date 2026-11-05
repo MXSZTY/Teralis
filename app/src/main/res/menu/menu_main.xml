@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_find"
+        android:icon="@drawable/ic_find"
+        android:title="@string/menu_find"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_page_zoom"
+        android:icon="@drawable/ic_zoom_in"
+        android:title="@string/menu_page_zoom"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/ic_share"
+        android:title="@string/menu_share"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_copy"
+        android:icon="@drawable/ic_copy"
+        android:title="@string/menu_copy"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_external"
+        android:icon="@drawable/ic_open_external"
+        android:title="@string/menu_external"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_clear_data"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/menu_clear_data"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+</menu>

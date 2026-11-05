@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 深色 M3 调色板（indigo） -->
+    <color name="md_primary">#BEC3FF</color>
+    <color name="md_on_primary">#0E2A7A</color>
+    <color name="md_primary_container">#2B4191</color>
+    <color name="md_on_primary_container">#DEE0FF</color>
+    <color name="md_secondary">#C3C4DD</color>
+    <color name="md_on_secondary">#2C2F42</color>
+    <color name="md_secondary_container">#424559</color>
+    <color name="md_on_secondary_container">#DFE0F9</color>
+    <color name="md_tertiary">#E4BBDB</color>
+    <color name="md_on_tertiary">#442740</color>
+    <color name="md_tertiary_container">#5C3D57</color>
+    <color name="md_on_tertiary_container">#FFD7F3</color>
+    <color name="md_error">#FFB4AB</color>
+    <color name="md_on_error">#690005</color>
+    <color name="md_error_container">#93000A</color>
+    <color name="md_on_error_container">#FFDAD6</color>
+    <color name="md_background">#131318</color>
+    <color name="md_on_background">#E4E1E9</color>
+    <color name="md_surface">#131318</color>
+    <color name="md_on_surface">#E4E1E9</color>
+    <color name="md_surface_variant">#46464F</color>
+    <color name="md_on_surface_variant">#C6C5D0</color>
+    <color name="md_surface_container_lowest">#0E0E13</color>
+    <color name="md_surface_container_low">#1B1B21</color>
+    <color name="md_surface_container">#1F1F25</color>
+    <color name="md_surface_container_high">#2A2930</color>
+    <color name="md_surface_container_highest">#35343B</color>
+    <color name="md_outline">#90909A</color>
+    <color name="md_outline_variant">#46464F</color>
+</resources>

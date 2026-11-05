@@ -22,6 +22,7 @@ import com.mxszty.teralis.data.EntryKind
 import com.mxszty.teralis.data.SearchEngine
 import com.mxszty.teralis.data.ThemeMode
 import com.mxszty.teralis.databinding.FragmentSettingsBinding
+import com.mxszty.teralis.util.UpdateChecker
 import com.mxszty.teralis.util.WebUtils
 
 /** 设置首页：按类别分组的全部全局设置。 */
@@ -88,6 +89,10 @@ class SettingsFragment : Fragment() {
         bindSwitch(binding.switchDeepInject)
         bindSwitch(binding.switchExitConfirm)
         bindSwitch(binding.switchClearOnExit)
+        bindSwitch(binding.switchAutoUpdate)
+
+        // 获取更新
+        binding.rowCheckUpdate.setOnClickListener { checkUpdateManually() }
 
         // 关于
         binding.rowGithub.setOnClickListener {
@@ -120,6 +125,7 @@ class SettingsFragment : Fragment() {
                     R.id.switchDeepInject -> current.copy(deepLocationInject = checked)
                     R.id.switchExitConfirm -> current.copy(exitConfirm = checked)
                     R.id.switchClearOnExit -> current.copy(clearDataOnExit = checked)
+                    R.id.switchAutoUpdate -> current.copy(autoCheckUpdate = checked)
                     else -> current
                 }
             }
@@ -153,6 +159,7 @@ class SettingsFragment : Fragment() {
         binding.switchDeepInject.isChecked = s.deepLocationInject
         binding.switchExitConfirm.isChecked = s.exitConfirm
         binding.switchClearOnExit.isChecked = s.clearDataOnExit
+        binding.switchAutoUpdate.isChecked = s.effectiveAutoCheckUpdate
 
         val dynamicSupported = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
         binding.switchDynamicColor.isEnabled = dynamicSupported
@@ -164,6 +171,28 @@ class SettingsFragment : Fragment() {
             info.versionName ?: "1.0"
         }.getOrDefault("1.0")
         updating = false
+    }
+
+    private var checkingUpdate = false
+
+    /** 手动检查更新：无论结果如何都给出反馈（自动检查则静默处理无更新/失败） */
+    private fun checkUpdateManually() {
+        if (checkingUpdate) return
+        checkingUpdate = true
+        snackbar(R.string.update_checking)
+        Thread {
+            val result = UpdateChecker.check(UpdateChecker.currentVersion(requireContext()))
+            activity?.runOnUiThread {
+                checkingUpdate = false
+                if (!isAdded) return@runOnUiThread
+                when (result) {
+                    is UpdateChecker.CheckResult.UpdateAvailable ->
+                        UpdateChecker.showUpdateDialog(requireContext(), result)
+                    UpdateChecker.CheckResult.UpToDate -> snackbar(R.string.update_none)
+                    UpdateChecker.CheckResult.Failed -> snackbar(R.string.update_failed)
+                }
+            }
+        }.start()
     }
 
     private fun showThemePicker() {

@@ -70,10 +70,15 @@ data class AppSettings(
     val fileAccessEnabled: Boolean = false,
     val autoGrantGeolocation: Boolean = true,
     val deepLocationInject: Boolean = true,
-    val clearDataOnExit: Boolean = false
+    val clearDataOnExit: Boolean = false,
+    /** 可空以兼容旧版配置 JSON；读取请用 [effectiveAutoCheckUpdate] */
+    val autoCheckUpdate: Boolean? = null
 ) {
     /** 当前生效的搜索引擎；旧配置未设置过该字段时回退为必应 */
     val effectiveSearchEngine: SearchEngine get() = searchEngine ?: SearchEngine.BING
+
+    /** 是否启动时自动检查更新；旧配置未设置过该字段时默认开启 */
+    val effectiveAutoCheckUpdate: Boolean get() = autoCheckUpdate ?: true
 }
 
 /** 配置导入导出信封格式 */

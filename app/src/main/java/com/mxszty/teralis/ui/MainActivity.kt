@@ -39,6 +39,7 @@ import com.mxszty.teralis.R
 import com.mxszty.teralis.data.ConfigStore
 import com.mxszty.teralis.data.EntryKind
 import com.mxszty.teralis.databinding.ActivityMainBinding
+import com.mxszty.teralis.util.UpdateChecker
 import com.mxszty.teralis.util.WebUtils
 import com.mxszty.teralis.web.DownloadHelper
 import com.mxszty.teralis.web.FileChooserHelper
@@ -126,6 +127,23 @@ class MainActivity :
         if (savedInstanceState == null) handleViewIntent(intent)
 
         ConfigStore.addListener(configChangeListener)
+
+        // 冷启动时自动检查更新（旋转重建不重复触发）
+        if (savedInstanceState == null && ConfigStore.settings.effectiveAutoCheckUpdate) {
+            checkUpdateOnLaunch()
+        }
+    }
+
+    /** 启动时自动检查更新：仅发现新版本时弹窗，无更新与失败均静默 */
+    private fun checkUpdateOnLaunch() {
+        Thread {
+            val result = UpdateChecker.check(UpdateChecker.currentVersion(this))
+            if (result is UpdateChecker.CheckResult.UpdateAvailable) {
+                runOnUiThread {
+                    if (!isFinishing && !isDestroyed) UpdateChecker.showUpdateDialog(this, result)
+                }
+            }
+        }.start()
     }
 
     /** 处理其他应用通过 ACTION_VIEW 跳转过来的 http(s) 链接；非网页 intent 返回 false */
